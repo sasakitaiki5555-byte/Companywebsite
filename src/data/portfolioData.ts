@@ -1,4 +1,5 @@
 import highiqImage from "figma:asset/06a872a6bdbc855e8f417b2921ed098f5e3001b5.png";
+import aiflowproImage from "figma:asset/535102c783a41124201e5812ffa381f73a0f1439.png";
 
 export interface PortfolioProject {
   id: string;
@@ -71,40 +72,41 @@ export const customSoftwareProjects: PortfolioProject[] = [
     featured: true
   },
   {
-    id: 'erp-system',
-    title: "Enterprise Resource Planning System",
-    subtitle: "Cloud-based ERP solution streamlining operations for 500+ employees across multiple locations",
-    description: "A comprehensive enterprise resource planning system that integrates all core business processes into a single, unified platform.",
-    longDescription: "We developed a cloud-native ERP solution that transformed the client's fragmented legacy systems into a cohesive, scalable platform. The system integrates finance, HR, inventory, supply chain, and customer management modules with real-time data synchronization across all departments. Built with modern microservices architecture, the platform supports multi-tenant operations, advanced analytics, and mobile access for remote workforce management.",
-    image: "https://images.unsplash.com/photo-1759752394755-1241472b589d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbnRlcnByaXNlJTIwc29mdHdhcmV8ZW58MXx8fHwxNzYyODA4MjM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    category: "Enterprise Software",
-    technologies: ["React", "Node.js", "PostgreSQL", "AWS", "Docker", "Kubernetes", "Redis", "GraphQL"],
-    duration: "18 months",
-    teamSize: "12 developers",
-    client: "Global Manufacturing Corp",
-    challenge: "The client struggled with disconnected legacy systems across 15 global locations, resulting in data silos, inefficient workflows, manual data entry, and lack of real-time visibility into operations. Multiple systems led to high maintenance costs and difficulty scaling operations.",
-    solution: "We architected a cloud-native ERP platform using microservices, enabling modular deployment and scalability. The solution included automated data migration from legacy systems, real-time synchronization across all modules, role-based access control, and a responsive UI for desktop and mobile devices. We implemented advanced reporting dashboards with customizable KPIs and integrated third-party logistics and payment systems.",
+    id: 'aiflowpro',
+    title: "AI Workflow-powered by Minck",
+    subtitle: "AI Workflow is a digital ecosystem hosting six AI-powered applications make it up to 30% faster and more efficient.",
+    description: "The platform emphasizes ease of use, quick setup, process optimization, and custom AI apps for companies or individuals, with features like LLM Search for database integration and tools such as AI for Meetings and Chat2Doc.",
+    longDescription: "AI-Flow Pro (aiflowpro.io) is an AI-powered platform that serves as a digital ecosystem hosting six AI applications to automate repetitive and administrative tasks, making workflows up to 30% faster and more efficient. It enables users to search multiple online sources, process information from URLs, user-uploaded documents, and multimedia, while delivering analytical summaries, scores, and insights across various domains. The platform emphasizes ease of use, quick setup, process optimization, and custom AI apps for companies or individuals, with features like LLM Search for database integration and tools such as AI for Meetings and Chat2Doc.",
+    image: aiflowproImage,
+    category: "AI-powered workflow automation and productivity tools",
+    technologies: ["Google API", "OpenGraph", "AWS", "Vimeo", "React JS", "Python", "LangChain", "LangGraph", "Express", "PostGres"],
+    duration: "1 year",
+    teamSize: "4 developers",
+    client: "minck",
+    challenge: "Excessive meeting time (15% of company hours), ineffective meetings (89% employee complaints), and email overload (up to 8.8 hours weekly with 50% irrelevant).",
+    solution: "We address challenges such as ineffective meetings, excessive administrative tasks, and communication inefficiencies by leveraging AI-driven automation, meeting intelligence, and workflow optimization technologies to save time and boost productivity.",
     results: [
-      "Reduced operational costs by 40% through process automation and system consolidation.",
-      "Improved data accuracy to 99.8% by eliminating manual data entry and duplication.",
-      "Achieved 99.95% uptime with cloud infrastructure and automated failover mechanisms.",
-      "Decreased report generation time from hours to seconds with real-time analytics.",
-      "Enabled remote workforce management for 500+ employees across 15 global locations.",
-      "Accelerated order processing by 60% through integrated workflows and automation."
+      "Engaging prospects quickly and boosting connection chances by enabling instant AI-driven texts and calls, allowing follow-ups within minutes to significantly increase engagement.",
+      "Automatically handling numerous contact attempts (18+), which helps reactivate stale leads and reduces cost per close by up to 33%, improving sales efficiency.",
+      "Automatically adding call summaries, notes, tags, and updating CRM systems, which frees teams to focus more on revenue-generating activities rather than manual data entry.",
+      "Booking meetings through text, enabling live transfer of qualified leads, and supporting round-robin assignments and calendar integrations to streamline scheduling.",
+      "Managing inquiries, screening resumes, conducting initial interviews, and handling support tickets before escalation, improving operational workflow."
     ],
     stats: [
-      { label: "Cost Reduction", value: "40%", icon: "DollarSign", description: "Reduced operational costs through automation and consolidation." },
-      { label: "Data Accuracy", value: "99.8%", icon: "Target", description: "Improved data accuracy by eliminating manual processes." },
-      { label: "System Uptime", value: "99.95%", icon: "Shield", description: "Achieved high availability with cloud infrastructure." },
-      { label: "Processing Speed", value: "60%", icon: "Zap", description: "Faster order processing through automation." },
-      { label: "User Adoption", value: "95%", icon: "Users", description: "High user adoption rate across all departments." },
-      { label: "Global Locations", value: "15", icon: "Globe", description: "Seamless operations across multiple locations." }
+      { label: "Workflow Speed", value: "30%", icon: "TrendingUp", description: "Boosts workflows up to 30% faster by automating repetitive tasks with six AI apps." },
+      { label: "Meeting Time Savings", value: "15%", icon: "TrendingDown", description: "Reduces wasted meeting time from 15% of company hours via AI transcription and summaries." },
+      { label: "Email Overload Reduction", value: "50%", icon: "Repeat", description: "Cuts irrelevant emails (50%) and handles up to 8.8 hours weekly through automation." },
+      { label: "Process Optimization", value: "30%", icon: "Heart", description: "Improves efficiency by 30% with customizable AI for insights in multiple domains." },
+      { label: "Administrative Automation", value: "90%", icon: "CheckCircle", description: "Automates summaries, notes, and updates similar to 90% admin load reduction in AI tools." },
+      { label: "Productivity Gain", value: "25%", icon: "Calendar", description: "Delivers 25% sales productivity increase via AI meeting intelligence and integrations." },
+      { label: "Task Handling Levels", value: "Level 1-3", icon: "Headphones", description: "Manages inquiries, workflows, and escalations with AI for meetings, search, and docs." }
     ],
     testimonial: {
-      quote: "The ERP system has completely transformed how we operate. We now have real-time visibility into every aspect of our business, and the efficiency gains have been remarkable. The team's expertise in enterprise architecture was evident throughout the project.",
-      author: "Sarah Chen",
-      role: "CIO, Global Manufacturing Corp"
+      quote: "Our team leverages AI every day to rapidly prototype and test product features. As a developer, your role is crucial in turning these ideas into smooth and impactful applications. I rely on your expertise to refine the designs and decide which features best serve our users. By focusing on user value and prioritizing based on data-driven insights, we build products that truly help users and grow our business. Your craftsmanship and collaboration are what bring our vision to life and unlock efficiency gains for our customers.",
+      author: "Owner/Founder of aiflowpro.io",
+      role: "Leading AI workflow development, prototyping, product management, and collaboration with developers to deliver user-focused AI solutions."
     },
+    link: "https://aiflowpro.io/",
     featured: true
   },
   {

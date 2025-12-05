@@ -1,112 +1,150 @@
+import { Mail, Phone, MapPin, Send, Linkedin } from "lucide-react";
 import { Button } from "./ui/button";
+import { Card } from "./ui/card";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import { Card } from "./ui/card";
-import { Mail, Phone, MapPin } from "lucide-react";
-import { useState } from "react";
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    // This would connect to your backend
-    alert("Thank you for your message! We'll get back to you soon.");
-    setFormData({ name: "", email: "", company: "", message: "" });
-  };
-
   return (
     <section className="py-20 bg-white min-h-[calc(100vh-4rem)]">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl mb-4">Get In Touch</h2>
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl mb-6">Get in Touch</h1>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Let's discuss your project
+            Ready to start your project? Contact us today and let's build something amazing together.
           </p>
         </div>
-        
-        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <div className="lg:col-span-2">
+
+        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          {/* Contact Information */}
+          <div>
+            <h2 className="text-3xl mb-8">Contact Information</h2>
+            
+            <div className="space-y-6 mb-12">
+              <Card className="p-6 border-slate-200">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-slate-100 rounded-lg">
+                    <Mail className="h-6 w-6 text-slate-900" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg mb-2">Email</h3>
+                    <a href="mailto:contact@codebetterworld.com" className="text-slate-600 hover:text-slate-900">
+                      contact@codebetterworld.com
+                    </a>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-6 border-slate-200">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-slate-100 rounded-lg">
+                    <Phone className="h-6 w-6 text-slate-900" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg mb-2">WhatsApp</h3>
+                    <a href="https://wa.me/1234567890" className="text-slate-600 hover:text-slate-900">
+                      +1 (234) 567-890
+                    </a>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-6 border-slate-200">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-slate-100 rounded-lg">
+                    <Linkedin className="h-6 w-6 text-slate-900" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg mb-2">LinkedIn</h3>
+                    <a href="https://linkedin.com/company/codebetterworld" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-slate-900">
+                      linkedin.com/company/codebetterworld
+                    </a>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-6 border-slate-200">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-slate-100 rounded-lg">
+                    <MapPin className="h-6 w-6 text-slate-900" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg mb-2">Locations</h3>
+                    <div className="text-slate-600">
+                      <div className="mb-1">USA • United Kingdom</div>
+                      <div className="mb-1">Germany • India</div>
+                      <div className="text-sm">Remote teams in 15+ countries</div>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
+            <div className="bg-slate-50 rounded-xl p-6">
+              <h3 className="text-lg mb-4">Business Hours</h3>
+              <div className="space-y-2 text-slate-600">
+                <div className="flex justify-between">
+                  <span>Monday - Friday:</span>
+                  <span>9:00 AM - 6:00 PM (Your Timezone)</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>24/7 Support:</span>
+                  <span>Emergency hotline available</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div>
+            <h2 className="text-3xl mb-8">Send Us a Message</h2>
             <Card className="p-8 border-slate-200">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm mb-2">Name</label>
-                    <Input
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Your name"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm mb-2">Email</label>
-                    <Input
-                      required
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="your@email.com"
-                    />
-                  </div>
+              <form className="space-y-6">
+                <div>
+                  <label className="block text-sm mb-2">Your Name *</label>
+                  <Input placeholder="John Doe" className="border-slate-300" />
+                </div>
+                
+                <div>
+                  <label className="block text-sm mb-2">Email Address *</label>
+                  <Input type="email" placeholder="john@company.com" className="border-slate-300" />
+                </div>
+                
+                <div>
+                  <label className="block text-sm mb-2">Phone Number</label>
+                  <Input type="tel" placeholder="+1 (234) 567-890" className="border-slate-300" />
                 </div>
                 
                 <div>
                   <label className="block text-sm mb-2">Company</label>
-                  <Input
-                    value={formData.company}
-                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    placeholder="Your company name"
-                  />
+                  <Input placeholder="Your Company Name" className="border-slate-300" />
                 </div>
                 
                 <div>
-                  <label className="block text-sm mb-2">Message</label>
-                  <Textarea
-                    required
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Tell us about your project..."
-                    rows={6}
+                  <label className="block text-sm mb-2">Service Interested In</label>
+                  <select className="w-full px-3 py-2 border border-slate-300 rounded-lg">
+                    <option>Custom Software Development</option>
+                    <option>Mobile App Development</option>
+                    <option>QA Testing Services</option>
+                    <option>Cloud Solutions</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label className="block text-sm mb-2">Project Details *</label>
+                  <Textarea 
+                    placeholder="Tell us about your project requirements, timeline, and budget..." 
+                    rows={5}
+                    className="border-slate-300"
                   />
                 </div>
                 
-                <Button type="submit" size="lg" className="w-full bg-slate-900 hover:bg-slate-800">
+                <Button className="w-full bg-slate-900 hover:bg-slate-800">
                   Send Message
+                  <Send className="ml-2 h-4 w-4" />
                 </Button>
               </form>
-            </Card>
-          </div>
-          
-          <div className="space-y-6">
-            <Card className="p-6 border-slate-200">
-              <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center mb-4">
-                <Mail className="h-6 w-6 text-slate-700" />
-              </div>
-              <h3 className="text-lg mb-2">Email Us</h3>
-              <p className="text-slate-600">contact@codebetterworld.com</p>
-            </Card>
-            
-            <Card className="p-6 border-slate-200">
-              <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center mb-4">
-                <Phone className="h-6 w-6 text-slate-700" />
-              </div>
-              <h3 className="text-lg mb-2">Call Us</h3>
-              <p className="text-slate-600">+1 (555) 123-4567</p>
-            </Card>
-            
-            <Card className="p-6 border-slate-200">
-              <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center mb-4">
-                <MapPin className="h-6 w-6 text-slate-700" />
-              </div>
-              <h3 className="text-lg mb-2">Visit Us</h3>
-              <p className="text-slate-600">123 Tech Street, San Francisco, CA 94105</p>
             </Card>
           </div>
         </div>

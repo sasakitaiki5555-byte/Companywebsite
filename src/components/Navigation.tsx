@@ -1,6 +1,6 @@
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Logo } from "./Logo";
 
 interface NavigationProps {
@@ -9,76 +9,77 @@ interface NavigationProps {
 }
 
 export function Navigation({ activeTab, setActiveTab }: NavigationProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const tabs = [
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navItems = [
     { id: "home", label: "Home" },
     { id: "services", label: "Services" },
     { id: "portfolio", label: "Portfolio" },
-    { id: "team", label: "Team" },
+    { id: "about", label: "About Us" },
     { id: "blog", label: "Blog" },
+    { id: "careers", label: "Careers" },
+    { id: "contact", label: "Contact Us" },
   ];
 
   const handleTabClick = (tabId: string) => {
     setActiveTab(tabId);
-    setIsOpen(false);
+    setIsMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white border-b border-slate-200 z-50">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled ? "bg-white shadow-md" : "bg-white/95 backdrop-blur-sm"
+    }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Logo />
           
           <div className="hidden md:flex items-center gap-1">
-            {tabs.map((tab) => (
+            {navItems.map((item) => (
               <button
-                key={tab.id}
-                onClick={() => handleTabClick(tab.id)}
+                key={item.id}
+                onClick={() => handleTabClick(item.id)}
                 className={`px-4 py-2 rounded-lg transition-colors ${
-                  activeTab === tab.id
+                  activeTab === item.id
                     ? "bg-slate-100 text-slate-900"
                     : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
                 }`}
               >
-                {tab.label}
+                {item.label}
               </button>
             ))}
-            <Button 
-              onClick={() => handleTabClick("contact")} 
-              className="ml-2 bg-slate-900 hover:bg-slate-800"
-            >
-              Contact Us
-            </Button>
           </div>
           
-          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden">
+            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
         
-        {isOpen && (
+        {isMobileMenuOpen && (
           <div className="md:hidden py-4 space-y-2">
-            {tabs.map((tab) => (
+            {navItems.map((item) => (
               <button
-                key={tab.id}
-                onClick={() => handleTabClick(tab.id)}
+                key={item.id}
+                onClick={() => handleTabClick(item.id)}
                 className={`block w-full text-left px-4 py-2 rounded-lg ${
-                  activeTab === tab.id
+                  activeTab === item.id
                     ? "bg-slate-100 text-slate-900"
                     : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
                 }`}
               >
-                {tab.label}
+                {item.label}
               </button>
             ))}
-            <Button 
-              onClick={() => handleTabClick("contact")} 
-              className="w-full bg-slate-900 hover:bg-slate-800"
-            >
-              Contact Us
-            </Button>
           </div>
         )}
       </div>

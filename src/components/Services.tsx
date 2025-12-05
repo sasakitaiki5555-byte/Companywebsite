@@ -134,13 +134,51 @@ const qaTestingServices = [
 
 export function Services() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white min-h-[calc(100vh-4rem)]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl mb-4">Our Services</h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Comprehensive software development and quality assurance services
+            Comprehensive software development and QA testing services
           </p>
+        </div>
+
+        {/* Development Process */}
+        <div className="mb-20">
+          <h3 className="text-3xl mb-12 text-center">Our Development Process</h3>
+          <div className="grid md:grid-cols-4 gap-6">
+            <div className="relative">
+              <div className="bg-slate-50 rounded-xl p-6 text-center h-full">
+                <div className="w-12 h-12 bg-slate-900 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl">1</div>
+                <h4 className="text-lg mb-3">Discovery & Planning</h4>
+                <p className="text-slate-600 text-sm">Requirements gathering, technical consultation, and project roadmap creation</p>
+              </div>
+              <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-6 bg-slate-200 rounded-full z-10"></div>
+            </div>
+            <div className="relative">
+              <div className="bg-slate-50 rounded-xl p-6 text-center h-full">
+                <div className="w-12 h-12 bg-slate-900 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl">2</div>
+                <h4 className="text-lg mb-3">Design & Architecture</h4>
+                <p className="text-slate-600 text-sm">UI/UX design, system architecture, database design, and technical specifications</p>
+              </div>
+              <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-6 bg-slate-200 rounded-full z-10"></div>
+            </div>
+            <div className="relative">
+              <div className="bg-slate-50 rounded-xl p-6 text-center h-full">
+                <div className="w-12 h-12 bg-slate-900 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl">3</div>
+                <h4 className="text-lg mb-3">Development & QA</h4>
+                <p className="text-slate-600 text-sm">Agile sprints, code reviews, automated testing, and continuous integration</p>
+              </div>
+              <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-6 bg-slate-200 rounded-full z-10"></div>
+            </div>
+            <div>
+              <div className="bg-slate-50 rounded-xl p-6 text-center h-full">
+                <div className="w-12 h-12 bg-slate-900 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl">4</div>
+                <h4 className="text-lg mb-3">Launch & Support</h4>
+                <p className="text-slate-600 text-sm">Deployment, monitoring, maintenance, and continuous optimization</p>
+              </div>
+            </div>
+          </div>
         </div>
         
         <Tabs defaultValue="software" className="w-full">

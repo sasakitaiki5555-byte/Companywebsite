@@ -1,61 +1,95 @@
-import { Linkedin, Github, Twitter, Facebook } from "lucide-react";
+import { Mail, Linkedin, Phone, MapPin } from "lucide-react";
 import { Logo } from "./Logo";
 
 export function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="bg-slate-900 text-white py-12">
+    <footer className="bg-slate-900 text-white py-16">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div>
             <div className="mb-4">
               <Logo />
             </div>
-            <p className="text-slate-400">
-              Building innovative software solutions for businesses worldwide.
+            <p className="text-slate-400 mb-6">
+              Building better software with global talent. Custom development and QA testing services for businesses worldwide.
             </p>
-          </div>
-          
-          <div>
-            <h4 className="mb-4">Services</h4>
-            <ul className="space-y-2 text-slate-400">
-              <li><a href="#" className="hover:text-white">Web Development</a></li>
-              <li><a href="#" className="hover:text-white">Mobile Development</a></li>
-              <li><a href="#" className="hover:text-white">Cloud Solutions</a></li>
-              <li><a href="#" className="hover:text-white">UI/UX Design</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="mb-4">Company</h4>
-            <ul className="space-y-2 text-slate-400">
-              <li><a href="#" className="hover:text-white">About Us</a></li>
-              <li><a href="#" className="hover:text-white">Careers</a></li>
-              <li><a href="#" className="hover:text-white">Blog</a></li>
-              <li><a href="#" className="hover:text-white">Contact</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="mb-4">Follow Us</h4>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
+              <a href="mailto:contact@codebetterworld.com" className="p-2 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors">
+                <Mail className="h-5 w-5" />
+              </a>
+              <a href="https://linkedin.com/company/codebetterworld" target="_blank" rel="noopener noreferrer" className="p-2 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
-                <Github className="h-5 w-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
-                <Facebook className="h-5 w-5" />
+              <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="p-2 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors">
+                <Phone className="h-5 w-5" />
               </a>
             </div>
           </div>
+
+          <div>
+            <h3 className="text-lg mb-4">Our Company</h3>
+            <ul className="space-y-2 text-slate-400">
+              <li><a href="#" className="hover:text-white transition-colors">Who We Are</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Working With Us</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Our Guarantee</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Our Leadership</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Why CodeBetterWorld</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg mb-4">Quality Services</h3>
+            <ul className="space-y-2 text-slate-400">
+              <li><a href="#" className="hover:text-white transition-colors">Software Testing & QA</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Test Automation</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Performance Testing</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Security Testing</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Mobile Testing</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Custom Development</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg mb-4">Contact Us</h3>
+            <ul className="space-y-4 text-slate-400">
+              <li className="flex items-start gap-2">
+                <Mail className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                <a href="mailto:contact@codebetterworld.com" className="hover:text-white transition-colors">
+                  contact@codebetterworld.com
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <Phone className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                <a href="https://wa.me/1234567890" className="hover:text-white transition-colors">
+                  WhatsApp: +1 (234) 567-890
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <MapPin className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                <div>
+                  <div>Global Offices:</div>
+                  <div className="text-sm">USA • UK • Germany • India</div>
+                  <div className="text-sm">Remote Teams in 15+ Countries</div>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
-        
-        <div className="border-t border-slate-800 pt-8 text-center text-slate-400">
-          <p>&copy; 2025 Code Better World. All rights reserved.</p>
+
+        <div className="border-t border-slate-800 pt-8">
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="text-slate-400 text-sm">
+              © {currentYear} CodeBetterWorld. All rights reserved.
+            </div>
+            <div className="flex flex-wrap gap-6 text-sm text-slate-400 md:justify-end">
+              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+              <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

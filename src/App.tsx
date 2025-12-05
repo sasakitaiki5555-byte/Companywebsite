@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Navigation } from "./components/Navigation";
+import { MegaNavigation } from "./components/MegaNavigation";
 import { Hero } from "./components/Hero";
 import { Services } from "./components/Services";
+import { ComprehensiveServices } from "./components/ComprehensiveServices";
 import { Portfolio } from "./components/Portfolio";
 import { Blog } from "./components/Blog";
 import { Customers } from "./components/Customers";
@@ -11,6 +12,14 @@ import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { BlogDetail } from "./components/BlogDetail";
 import { PortfolioDetail } from "./components/PortfolioDetail";
+import { Careers } from "./components/Careers";
+import { About } from "./components/About";
+import { Industries } from "./components/Industries";
+import { ComprehensiveIndustries } from "./components/ComprehensiveIndustries";
+import { FAQ } from "./components/FAQ";
+import { TechnologiesPage } from "./components/TechnologiesPage";
+import { HireDevelopers } from "./components/HireDevelopers";
+import { KnowledgeCenter } from "./components/KnowledgeCenter";
 import type { PortfolioProject } from "./data/portfolioData";
 
 interface BlogPost {
@@ -55,38 +64,95 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
+      <MegaNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
       
       <main className="pt-16">
+        {/* Home Section */}
         {activeTab === "home" && !selectedBlogPost && !selectedProject && (
           <>
             <Hero />
+            <Services />
+            <ComprehensiveIndustries />
+            <Portfolio onProjectClick={handlePortfolioClick} />
             <Customers />
             <Testimonials />
+            <FAQ />
           </>
         )}
-        
-        {activeTab === "services" && !selectedBlogPost && !selectedProject && <Services />}
-        
-        {activeTab === "portfolio" && !selectedProject && !selectedBlogPost && (
+
+        {/* Team Section */}
+        {activeTab === "team" && <Team />}
+        {activeTab === "our-team" && <Team />}
+        {activeTab === "careers" && <Careers />}
+        {activeTab === "contact" && <Contact />}
+        {activeTab === "tech-blog" && <Blog onBlogClick={handleBlogClick} />}
+        {activeTab === "ebooks" && <KnowledgeCenter />}
+        {activeTab === "journey" && <About />}
+
+        {/* Industries Section */}
+        {(activeTab === "industries" || 
+          ["aviation", "banking", "insurtech", "healthcare", "finance", "pharmaceutical", 
+           "ecommerce", "edtech", "legaltech", "realestate", "retail", "supplychain", 
+           "travel", "automotive", "entertainment", "energy", "telecom", "lifesciences"].includes(activeTab)) && (
+          <ComprehensiveIndustries />
+        )}
+
+        {/* Technologies Section */}
+        {(activeTab === "technologies" || 
+          ["backend", "frontend", "mobile", "devops", "ai-automation", "blockchain", 
+           "platforms", "generative-ai"].includes(activeTab)) && (
+          <TechnologiesPage selectedTech={
+            ["backend", "frontend", "mobile", "devops", "ai-automation", "blockchain", 
+             "platforms", "generative-ai"].includes(activeTab) ? activeTab : undefined
+          } />
+        )}
+
+        {/* Services Section */}
+        {(activeTab === "services" || 
+          ["software-engineering", "ai-innovation", "quality-engineering", "testing-services", 
+           "business-digitalization", "strategy-advisory", "cybersecurity", "operations-support", 
+           "design-services", "iot-services"].includes(activeTab)) && (
+          <ComprehensiveServices selectedService={
+            ["software-engineering", "ai-innovation", "quality-engineering", "testing-services", 
+             "business-digitalization", "strategy-advisory", "cybersecurity", "operations-support", 
+             "design-services", "iot-services"].includes(activeTab) ? activeTab : undefined
+          } />
+        )}
+
+        {/* Hire Developers Section */}
+        {(activeTab === "hire-developers" || 
+          ["hire-backend", "hire-frontend", "hire-mobile", "hire-ai", "hire-devops", 
+           "hire-fullstack", "hire-blockchain"].includes(activeTab)) && (
+          <HireDevelopers />
+        )}
+
+        {/* Portfolio Section */}
+        {activeTab === "portfolio" && !selectedProject && (
           <Portfolio onProjectClick={handlePortfolioClick} />
         )}
-        
-        {activeTab === "portfolio" && selectedProject && (
+        {selectedProject && (
           <PortfolioDetail project={selectedProject} onBack={handleBackFromPortfolio} />
         )}
-        
-        {activeTab === "team" && !selectedBlogPost && !selectedProject && <Team />}
-        
-        {activeTab === "blog" && !selectedBlogPost && !selectedProject && (
-          <Blog onBlogClick={handleBlogClick} />
+
+        {/* Knowledge Center Section */}
+        {(activeTab === "knowledge-center" || 
+          ["case-studies", "blog", "webinars", "whitepapers", "guides"].includes(activeTab)) && (
+          <KnowledgeCenter />
         )}
-        
-        {activeTab === "blog" && selectedBlogPost && (
+
+        {/* About Section */}
+        {(activeTab === "about" || 
+          ["leadership", "tech-talent", "culture", "faq"].includes(activeTab)) && (
+          <>
+            <About />
+            {activeTab === "faq" && <FAQ />}
+          </>
+        )}
+
+        {/* Blog Detail */}
+        {selectedBlogPost && (
           <BlogDetail post={selectedBlogPost} onBack={handleBackFromBlog} />
         )}
-        
-        {activeTab === "contact" && !selectedBlogPost && !selectedProject && <Contact />}
       </main>
       
       <Footer />
